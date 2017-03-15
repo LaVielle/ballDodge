@@ -25,9 +25,11 @@ function draw() {
 	playerBall.show();
 	playerBall.update();
 
+
 	for (var i = balls.length-1; i >=0; i--) {
 
 		if (balls[i].pos.y > height + balls[i].r){
+			balls[i].pos.x = random(width);
 			balls[i].pos.y = random(-height, -height/2);
 			console.log(balls[i] + " passed");
 			balls[i].accel +=1;
@@ -42,4 +44,6 @@ function draw() {
 		}
 	}
 
+
 }
+
