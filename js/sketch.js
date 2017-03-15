@@ -22,6 +22,17 @@ function draw() {
 	background(0);
 
 	playerBall.pos.x = mouseX;
+
+	if (playerBall.pos.x <= 0){
+		playerBall.pos.x = 0;
+	}
+	else if (playerBall.pos.x >= width){
+		playerBall.pos.x = width;
+	}
+	else{
+		playerBall.pos.x = mouseX;
+	}
+	
 	playerBall.show();
 	playerBall.update();
 
