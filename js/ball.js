@@ -1,12 +1,23 @@
 
-function Ball(x, y, r){
+function Ball(x, y, r, a){
   this.pos = createVector(x, y);
     this.r = r;
     this.vel = createVector(0,0);
-    this.accel = acceleration;
+    this.accel = a;
 
     this.update = function() {
       this.pos.y += this.accel;
+
+    }
+
+    this.eats = function(other){
+    var d = p5.Vector.dist(this.pos, other.pos);
+    if( d <= this.r +other.r){
+      this.r += other.r;
+      console.log("touched");
+      return true;
+    }
+    return false;
     }
 
     this.show = function() {
